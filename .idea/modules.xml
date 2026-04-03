@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ApiGateway/ApiGateway.iml" filepath="$PROJECT_DIR$/ApiGateway/ApiGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoreApartmentService/CoreApartmentService.iml" filepath="$PROJECT_DIR$/CoreApartmentService/CoreApartmentService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DiscoveryClient/DiscoveryClient.iml" filepath="$PROJECT_DIR$/DiscoveryClient/DiscoveryClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExternalInformationService/ExternalInformationService.iml" filepath="$PROJECT_DIR$/ExternalInformationService/ExternalInformationService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaintenanceAndFeeManagementService/MaintenanceAndFeeManagementService.iml" filepath="$PROJECT_DIR$/MaintenanceAndFeeManagementService/MaintenanceAndFeeManagementService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NotificationAndDocumentService/NotificationAndDocumentService.iml" filepath="$PROJECT_DIR$/NotificationAndDocumentService/NotificationAndDocumentService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Project12_Apartment360.iml" filepath="$PROJECT_DIR$/.idea/Project12_Apartment360.iml" />
+    </modules>
+  </component>
+</project>

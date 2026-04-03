@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="DiscoveryClient" />
+        <module name="ExternalInformationService" />
+        <module name="NotificationAndDocumentService" />
+        <module name="MaintenanceAndFeeManagementService" />
+        <module name="ApiGateway" />
+        <module name="CoreApartmentService" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ApiGateway" target="19" />
+      <module name="CoreApartmentService" target="19" />
+      <module name="DiscoveryClient" target="19" />
+      <module name="ExternalInformationService" target="19" />
+      <module name="MaintenanceAndFeeManagementService" target="19" />
+      <module name="NotificationAndDocumentService" target="19" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ApiGateway" options="-parameters" />
+      <module name="CoreApartmentService" options="-parameters" />
+      <module name="DiscoveryClient" options="-parameters" />
+      <module name="ExternalInformationService" options="-parameters" />
+      <module name="MaintenanceAndFeeManagementService" options="-parameters" />
+      <module name="NotificationAndDocumentService" options="-parameters" />
+    </option>
+  </component>
+</project>

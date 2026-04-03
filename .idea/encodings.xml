@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/ApiGateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/CoreApartmentService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/DiscoveryClient/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ExternalInformationService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MaintenanceAndFeeManagementService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NotificationAndDocumentService/src/main/java" charset="UTF-8" />
+  </component>
+</project>
