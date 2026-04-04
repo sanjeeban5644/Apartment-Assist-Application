@@ -14,9 +14,11 @@ import com.sanjeeban.CoreApartmentService.util.CommonValidationUtils;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
@@ -29,26 +31,33 @@ import java.util.Optional;
 @Service
 public class AdminService {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    @Value("${kafka.topic.pdftopic}")
+    private String KAFKA_PDF_TOPIC;
+
+    private final JdbcTemplate jdbcTemplate;
+    private final TUserInformationRepository tUserInformationRepository;
+    private final ModelMapper modelMapper;
+    private final TResidentProfileRepository tResidentProfileRepository;
+    private final DataSource dataSource;
+    private final AdminDataAccess adminDataAccess;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
-    private TUserInformationRepository tUserInformationRepository;
-
-    @Autowired
-    private ModelMapper modelMapper;
-
-    @Autowired
-    private TResidentProfileRepository tResidentProfileRepository;
-
-    @Autowired
-    private DataSource dataSource;
-
-    @Autowired
-    private AdminDataAccess adminDataAccess;
-
-
-
+    public AdminService(JdbcTemplate jdbcTemplate,
+                        TUserInformationRepository tUserInformationRepository,
+                        ModelMapper modelMapper,
+                        TResidentProfileRepository tResidentProfileRepository,
+                        DataSource dataSource,
+                        AdminDataAccess adminDataAccess,
+                        KafkaTemplate<String, String> kafkaTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+        this.tUserInformationRepository = tUserInformationRepository;
+        this.modelMapper = modelMapper;
+        this.tResidentProfileRepository = tResidentProfileRepository;
+        this.dataSource = dataSource;
+        this.adminDataAccess = adminDataAccess;
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     @AuditLog(action = "CREATE_USER")
     public CreateUserResponse createNewUser(CreateUserRequest request) {
@@ -165,6 +174,10 @@ public class AdminService {
         // all validation is correct. Updating the resident profile table.
 
         adminDataAccess.updateResidentProfile(uniqueId,request.getApartmentNumber());
+
+        // send to kafka for pdf generation.
+        kafkaTemplate.send(KAFKA_PDF_TOPIC,String.valueOf(uniqueId));
+
 
         response.setResidentStatus("ACTIVE");
         response.setResponseCode("200");

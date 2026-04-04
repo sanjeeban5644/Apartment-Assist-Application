@@ -1,0 +1,5 @@
+kafka.topic.pdftopic: pdf
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
